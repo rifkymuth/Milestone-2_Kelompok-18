@@ -16,3 +16,12 @@ Pembagian tugas milestone 2
 9. Muhammad Rifky Muthahhari (16519354), Front end
 10. (16519401), Front end
 
+## Frontend
+- Public
+
+## Backend
+- Private
+- Database
+- index.js (server)
+
+

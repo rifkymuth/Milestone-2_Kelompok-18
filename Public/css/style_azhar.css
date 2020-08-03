@@ -204,6 +204,29 @@ a:active{
 	background: grey;
 }
 
-#buku {
+.buku {
+	padding: 10px;
+	border: #000 solid 1px;
+}
+
+
+.buku .cover{
+	width: 30%;
+	height: 100%;
+	float:left;
+	object-fit: contain;
 	padding: 5px;
+}
+
+.buku .keterangan{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	padding: 5px;
+	margin: 0;
+}
+
+.buku .keterangan p{
+	margin-top: 0;
+	margin-bottom: 5px;
 }

@@ -92,6 +92,8 @@ function inputBuku(daftarBuku) {
         el.addEventListener('click', async e => {
             //Ambil data
             const parent = e.target.parentNode
+            const grandParent = e.target.parentNode.parentNode
+            const img = grandParent.querySelector('.cover').src
             const judul = parent.querySelector('#judul').innerText
             const pengarang = parent.querySelector('#pengarang').innerText
             const tahun = parent.querySelector('#tahun').innerText
@@ -101,7 +103,7 @@ function inputBuku(daftarBuku) {
             const genre = parent.querySelector('#genre').value
             const deskripsi = parent.querySelector('#deskripsi').value
             //Menyimpan ke data
-            const data = {judul, pengarang, tahun, isbn, halaman, bahasa, genre, deskripsi};
+            const data = {judul, pengarang, tahun, isbn, halaman, bahasa, genre, deskripsi, img};
             //Opsi data
             const options = {
                 method: 'POST',

@@ -30,14 +30,16 @@ function getBuku() {
         for (let i = 0; i < daftarBuku.length; i++) {
             buku = daftarBuku[i].volumeInfo
             try {
-                const imgsrc = buku.imageLinks.thumbnail;
-                tampil(imgsrc);
+                var imgsrc = buku.imageLinks.thumbnail;
+                var isbn = buku.industryIdentifiers[0].identifier
+                tampil();
             }
             catch (error) {
-                const imgsrc = 'none.jpg';
-                tampil(imgsrc);
+                var imgsrc = 'none.jpg';
+                var isbn = 'not found'
+                tampil();
             }   
-            function tampil(imgsrc) {
+            function tampil() {
                 //console.log(imgsrc);
                 found.innerHTML = `
                 <p>Terdapat ${daftarBuku.length} hasil`;
@@ -45,9 +47,12 @@ function getBuku() {
                     <div class='buku'>
                         <img class='cover' src=${imgsrc} width='256px' height='394px'>
                         <div class='keterangan'>
-                            <p>Judul : ${buku.title}</p>
-                            <p>Pengarang : ${buku.authors} </p>
-                            <p>Tahun Terbit : ${buku.publishedDate} </p>
+                            <p>Judul : <span id='judul'>${buku.title}</span></p>
+                            <p>Pengarang : <span id='pengarang'>${buku.authors}</span></p>
+                            <p>Tahun Terbit : <span id='tahun'>${buku.publishedDate.substring(0,4)}</span></p>
+                            <p>ISBN : <span id='isbn'>${isbn}</span></p>
+                            <p>Jumlah halaman : <span id='halaman'>${buku.pageCount}</span></p>
+                            <p>Bahasa : <span id='bahasa'>${buku.language}</span></p>
                             <label for="deskripsi">Deskripsi Buku :</label>
                             <div>
                                 <textarea id="deskripsi"></textarea>
@@ -72,18 +77,17 @@ function getBuku() {
                 listBuku.innerHTML = output
                 }      
             }
-    inputBuku()});
-    
+    inputBuku(daftarBuku)});   
 }
-
 
 function selectValue() {
     let x = document.getElementById("genre").value;
     return x;
   }
-function inputBuku() {
+
+function inputBuku(daftarBuku) {
     const submit = document.getElementsByClassName('inputData');
-    console.log(submit);
+    console.log(daftarBuku);
     for (const el of submit) {
         el.addEventListener('click', e => {
             console.log('hello');

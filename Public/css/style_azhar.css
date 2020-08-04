@@ -207,21 +207,29 @@ a:active{
 .buku {
 	padding: 10px;
 	border: #000 solid 1px;
+	height: 400px;
+	box-sizing: content-box;
+	
 }
-
-
+#genre {
+	margin : 10px 0;
+}
 .buku .cover{
-	width: 30%;
-	height: 100%;
-	float:left;
+	float: left;
+	border: #000 solid 1px;
+	height: 350px;
+	width: auto;
 	object-fit: contain;
-	padding: 5px;
+	padding: 0;
+	margin: 5px;
+	margin-right: 20px;
+	box-sizing: content-box;
+	
 }
 
 .buku .keterangan{
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
 	padding: 5px;
 	margin: 0;
 }

@@ -19,6 +19,12 @@ body{
 	margin:0;
 }
 
+textarea{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-weight:normal;
+}
+
 a{
 	text-decoration: none;
 	color:#000;
@@ -237,4 +243,8 @@ a:active{
 .buku .keterangan p{
 	margin-top: 0;
 	margin-bottom: 5px;
+}
+
+#alert {
+	margin: 20px 0; 
 }

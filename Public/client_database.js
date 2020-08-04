@@ -32,11 +32,13 @@ function getBuku() {
             try {
                 var imgsrc = buku.imageLinks.thumbnail;
                 var isbn = buku.industryIdentifiers[0].identifier
+                var tahun = buku.publishedDate.substring(0,4)
                 tampil();
             }
             catch (error) {
                 var imgsrc = 'none.jpg';
-                var isbn = 'not found'
+                var isbn = 'not found';
+                var tahun = 'not found';
                 tampil();
             }   
             function tampil() {
@@ -49,7 +51,7 @@ function getBuku() {
                         <div class='keterangan'>
                             <p>Judul : <span id='judul'>${buku.title}</span></p>
                             <p>Pengarang : <span id='pengarang'>${buku.authors}</span></p>
-                            <p>Tahun Terbit : <span id='tahun'>${buku.publishedDate.substring(0,4)}</span></p>
+                            <p>Tahun Terbit : <span id='tahun'>${tahun}</span></p>
                             <p>ISBN : <span id='isbn'>${isbn}</span></p>
                             <p>Jumlah halaman : <span id='halaman'>${buku.pageCount}</span></p>
                             <p>Bahasa : <span id='bahasa'>${buku.language}</span></p>
@@ -59,6 +61,7 @@ function getBuku() {
                             </div>
                             <label for="genre">Genre Buku :</label>
                             <select name="genre" id="genre" onchange="selectValue()">
+                            <optgroup label="Fiksi">
                                 <option value="Horror">Horror</option>
                                 <option value="Fantasi">Fantasi</option>
                                 <option value="Sci-Fi">Sci-Fi</option>
@@ -66,26 +69,28 @@ function getBuku() {
                                 <option value="Humor">Humor</option>
                                 <option value="Misteri">Misteri</option>
                                 <option value="Petualangan">Petualangan</option>
+                            </optgroup>
+                            <optgroup label="Non-Fiksi">
                                 <option value="Biografi">Biografi</option>
+                                <option value="Sejarah">Sejarah</option>
                                 <option value="Ensiklopedia">Ensiklopedia</option>
-                                <option value="Pengetahuan">Pengetahaun</option>
+                                <option value="Akademik">Akademik</option>
+                                <option value="Filsafat">Filsafat</option>
+                                <option value="Kerajinan">Kerajinan</option>
+                            </optgroup>
                             </select><br>
                             <input type="button" value="Input Data" class="inputData">
+                            <div id='alert'></div>
                         </div>
                     </div>`;
                 
                 listBuku.innerHTML = output
                 }      
             }
-    inputBuku(daftarBuku)});   
+    inputBuku()});   
 }
 
-function selectValue() {
-    let x = document.getElementById("genre").value;
-    return x;
-  }
-
-function inputBuku(daftarBuku) {
+function inputBuku() {
     const submit = document.getElementsByClassName('inputData');
     //console.log(daftarBuku);
     for (const el of submit) {
@@ -102,8 +107,9 @@ function inputBuku(daftarBuku) {
             const bahasa = parent.querySelector('#bahasa').innerText
             const genre = parent.querySelector('#genre').value
             const deskripsi = parent.querySelector('#deskripsi').value
+            const epub = ""
             //Menyimpan ke data
-            const data = {judul, pengarang, tahun, isbn, halaman, bahasa, genre, deskripsi, img};
+            const data = {judul, pengarang, tahun, isbn, halaman, bahasa, genre, deskripsi, img, epub};
             //Opsi data
             const options = {
                 method: 'POST',
@@ -114,7 +120,7 @@ function inputBuku(daftarBuku) {
             };
             const response = await fetch('/tambahBuku', options);
             const json = await response.json();
-            console.log(json.text);
+            parent.querySelector('#alert').innerText = json.text
         })
     }
 }

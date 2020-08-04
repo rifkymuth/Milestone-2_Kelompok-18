@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lentbook</title>
 
-    <link href='/src/style.css' rel='stylesheet' type='text/css'>
-    <script src='src/main.js'></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="./src/style.css" rel="stylesheet" type="text/css" />
+    <script src="./src/main.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome Icons -->
     <link
@@ -16,39 +19,100 @@
     />
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-
-</head>
-<body>
+  <body>
+    <main class="container-fluid padding w-100 background-landingpage">
+      <div class="text-center padding-v">
+        <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-xs-6 top-half padding">
+          <h1 class="text-white">Sewa Buku Sekarang</h1>
+          <h1 class="text-white">Di Mana Saja Kapan Saja</h1>
+        </div>
+        <div class="col-md-4 col-xs-3 padding">
+          <p class="text-white">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam at,
+            sit nihil quos mollitia animi tenetur deserunt fugiat unde itaque
+            modi atque libero officia autem reprehenderit veritatis ipsa.
+            Dolores, aperiam!
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="continer-fluid padding">
+          <button type="button" class="btn btn-outline-warning rounded-pill">
+            BACA SEKARANG <i class="fas fa-arrow-right text-warning"></i>
+          </button>
+        </div>
+      </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="row">
-          <div class="container col-md-5 pl-5 ml-5">
-            <span>Dapatkan Informasi dan Promo Terbaru</span>
-            <br>
-            <form class="form-inline w-100">
-              <div class="form-group w-50">
-                <input type="email" class="form-control form-control-sm m-1 w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Alamat E-mail Anda">
-              </div>
-              <button type="submit" class="btn btn-primary btn-sm">DAFTAR</button>
-            </form>
-          </div>
-          <div class="container col-md-6 pr-5 mr-5">
-            <span class="float-right">Ikuti kami</span>
-            <br>
-            <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.facebook.com" class="float-right m-1 fa-lg"><i class="fab fa-facebook-square"></i></a>
-            <a href="https://www.instagram.com" class="float-right m-1 fa-lg"><i class="fab fa-instagram-square"></i></a>
-          </div>
+    <footer class="footer container-fluid">
+      <!-- <div class="row">
+        <div class="container-fluid col-md-5 pl-5 ml-5">
+          <span>Dapatkan Informasi dan Promo Terbaru</span>
+          <br />
+          <form class="form-inline w-100">
+            <div class="form-group w-50">
+              <input
+                type="email"
+                class="form-control form-control-sm m-1 w-100"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Masukkan Alamat E-mail Anda"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">DAFTAR</button>
+          </form>
         </div>
-        <p class="text-center m-0"><small>&copy;Lentbook 2020</small></p>
-      </footer>
+        <div class="container col-md-6 pr-5 mr-5">
+          <span class="float-right">Ikuti kami</span>
+          <br />
+          <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.facebook.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-facebook-square"></i
+          ></a>
+          <a href="https://www.instagram.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-instagram-square"></i
+          ></a>
+        </div>
+      </div> -->
+      <p class="text-center m-0 bg-dark text-white">
+        <small>&copy;Lentbook 2020</small>
+      </p>
+    </footer>
+
     <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -1,8 +1,8 @@
 const express = require("express");
-const { request, response } = require("express");
 const app = express();
 
 app.use(express.static(__dirname + "/Public/")); // BUAT AKSES FRONT END
+app.use(express.json({ limit: '10mb' }));
 
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/Public/landingpage.html"); // INDEKS FRONT END
@@ -16,3 +16,9 @@ app.get("/tambahBuku", (request, response) => {
   response.sendFile(__dirname + "/Public/tambahBuku.html");
   console.log("Membuka tambah buku");//response.json("lancar")
 });
+
+app.post("/tambahBuku", (request, response) => {
+  const data = request.body;
+  
+  response.json({text : "Data diterima"});
+})

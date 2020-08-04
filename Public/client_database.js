@@ -87,10 +87,32 @@ function selectValue() {
 
 function inputBuku(daftarBuku) {
     const submit = document.getElementsByClassName('inputData');
-    console.log(daftarBuku);
+    //console.log(daftarBuku);
     for (const el of submit) {
-        el.addEventListener('click', e => {
-            console.log('hello');
+        el.addEventListener('click', async e => {
+            //Ambil data
+            const parent = e.target.parentNode
+            const judul = parent.querySelector('#judul').innerText
+            const pengarang = parent.querySelector('#pengarang').innerText
+            const tahun = parent.querySelector('#tahun').innerText
+            const isbn = parent.querySelector('#isbn').innerText
+            const halaman = parent.querySelector('#halaman').innerText
+            const bahasa = parent.querySelector('#bahasa').innerText
+            const genre = parent.querySelector('#genre').value
+            const deskripsi = parent.querySelector('#deskripsi').value
+            //Menyimpan ke data
+            const data = {judul, pengarang, tahun, isbn, halaman, bahasa, genre, deskripsi};
+            //Opsi data
+            const options = {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            };
+            const response = await fetch('/tambahBuku', options);
+            const json = await response.json();
+            console.log(json.text);
         })
     }
 }

@@ -16,6 +16,16 @@ const listener = app.listen(3000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
+app.get("/api", (request, response) => {
+  dataBuku.find({}, (err, data) => {
+    if (err) {
+      response.end();
+      return;
+    }
+    response.json(data);
+  });
+});
+
 app.get("/tambahBuku", (request, response) => {
   response.sendFile(__dirname + "/Public/tambahBuku.html");
   console.log("opening tambahBuku.html");//response.json("lancar")
@@ -40,8 +50,5 @@ app.post("/tambahBuku", (request, response) => {
       response.json({text : "Gagal: Buku sudah ada!"});
     }
   })
-  
- 
   //dataBuku.find({judul : /Lord/i}, (err, docs)=> {})
-  
 })

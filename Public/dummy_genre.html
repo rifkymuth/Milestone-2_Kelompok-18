@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cari buku</title>
+</head>
+<body>
+    <h1>Cari Genre Buku</h1>
+    <select name="genre" id="genre">
+        <optgroup label="Fiksi">
+            <option value="Horror">Horror</option>
+            <option value="Fantasi">Fantasi</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Romance">Romance</option>
+            <option value="Humor">Humor</option>
+            <option value="Misteri">Misteri</option>
+            <option value="Petualangan">Petualangan</option>
+        </optgroup>
+        <optgroup label="Non-Fiksi">
+            <option value="Biografi">Biografi</option>
+            <option value="Sejarah">Sejarah</option>
+            <option value="Ensiklopedia">Ensiklopedia</option>
+            <option value="Akademik">Akademik</option>
+            <option value="Filsafat">Filsafat</option>
+            <option value="Kerajinan">Kerajinan</option>
+        </optgroup>
+        </select><br> 
+    <input class="button" type="button" value="Cari" id="cariData">
+    <script>
+        const tombol = document.getElementById('cariData');
+        tombol.addEventListener('click', async e => {
+            const genre = document.getElementById('genre').value
+            // Cari Genre
+            const response = await fetch(`/api/cariGenre/${genre}`);
+            const data = await response.json();
+            console.log(data);
+        })
+    </script>
+    
+</body>
+</html>

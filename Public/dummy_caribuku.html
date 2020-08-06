@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cari buku</title>
+</head>
+<body>
+    <h1>Cari Database Buku</h1>
+        <form class="my-form">
+            <div class="form-group">
+                <label>Judul/Pengarang: </label>
+                <input type="text" name="name" id="cari">
+            </div>
+            <input class="button" type="button" value="Cari" id="cariData">
+        </form>
+    <script>
+        const tombol = document.getElementById('cariData');
+        tombol.addEventListener('click', async e => {
+            const query = document.getElementById('cari').value
+            // Cari Data Buku
+            const response = await fetch(`/api/cariBuku/${query}`);
+            const data = await response.json();
+            console.log(data);
+            
+        })
+    </script>
+    
+</body>
+</html>

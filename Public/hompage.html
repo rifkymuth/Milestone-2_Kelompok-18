@@ -28,17 +28,29 @@
   </head>
   <body>
     <!--Navigation Bar-->
-    <nav class="navbar navbar-dark bg-dark">
-     <a class="navbar-brand" href="./hompage.html">
-      <img src=""
-     </a>
+    <nav class="navbar navbar-dark bg-dark row">
+      <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
+        <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
+      </a>
+      <form class="form-inline col-md-3 text-right">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
     </nav>
+
     <!--Paling banyak dibaca & Series-->
     <div class="container-fluid padding">
       <h3>Paling Banyak Dibaca</h3>
-      <p class="text-right"><a  href="#">Lihat Semua</a> </p>
-      <div class="row padding text-center">
-        <div class="col-xs-6 col-md-4 col-lg-3">
+      <p class="text-right"><a href="#">Lihat Semua</a></p>
+      <div class="row padding text-center" id="paling-banyak-dibaca">
+        <!-- <div class="col-xs-6 col-md-4 col-lg-3">
           <img src="" alt=“{{ judul-buku}}">
           <h4>{{ judul-buku }}</h4>
           <p class="font-italic">{{ author }}</p>
@@ -54,67 +66,116 @@
           <p class="font-italic">{{ author }}</p>
         </div>
         <div class="col-xs-6 col-md-4 col-lg-3">
-          <img src="src/Asset/Books/1001004000772645.jpg" alt="The Power Of Now" class="img-thumbnail" width="200" height="100">
+          <img
+            src="src/Asset/Books/1001004000772645.jpg"
+            alt="The Power Of Now"
+            class="img-thumbnail"
+            width="200"
+            height="100"
+          />
           <h4>The Power Of Now</h4>
           <p class="font-italic">Eckhart Tolle</p>
           <p>1000 Sedang Membaca</p>
-        </div> 
-      </div>	
+        </div> -->
+      </div>
     </div>
     <div class="container-fluid padding">
       <h3>Sewa Satu, Dapat Full Series</h3>
-      <p class="text-right"><a  href="#">Lihat Semua</a> </p>
+      <p class="text-right"><a href="#">Lihat Semua</a></p>
       <div class="row padding text-center">
         <div class="col-xs-6 col-md-4 col-lg-3">
-          <img src="src/Asset/Books/9786020638263.jpg" alt="Harry Potter dan Batu Bertuah"class="img-thumbnail" width="200" height="100">
+          <img
+            src="src/Asset/Books/9786020638263.jpg"
+            alt="Harry Potter dan Batu Bertuah"
+            class="img-thumbnail"
+            width="200"
+            height="100"
+          />
           <h4>Harry Potter dan Batu Bertuah</h4>
           <p class="font-italic">J.K Rowling</p>
           <p>1000 Sedang Membaca</p>
         </div>
         <div class="col-xs-6 col-md-4 col-lg-3">
-          <img src="src/Asset/Books/9786020332260_The-Lord-Of-The-Rings_Sembilan-Pembawa-Cincin-The-Fellowship-Of-The-Ring-_Cover-Baru.jpg" alt="The Lord of The Rings: The Fellowship of The Ring" class="img-thumbnail" width="200" height="100">
+          <img
+            src="src/Asset/Books/9786020332260_The-Lord-Of-The-Rings_Sembilan-Pembawa-Cincin-The-Fellowship-Of-The-Ring-_Cover-Baru.jpg"
+            alt="The Lord of The Rings: The Fellowship of The Ring"
+            class="img-thumbnail"
+            width="200"
+            height="100"
+          />
           <h4>The Lord of The Rings: The Fellowship of The Ring</h4>
           <p class="font-italic">J. R. R. Tolkien</p>
           <p>1000 Sedang Membaca</p>
         </div>
         <div class="col-xs-6 col-md-4 col-lg-3">
-          <img src="src/Asset/Books/14512092_b751dddc-c00b-4faf-b2fa-f9e4efc27be4_300_460.jpg" alt="The Witcher" class="img-thumbnail" width="200" height="100">
+          <img
+            src="src/Asset/Books/14512092_b751dddc-c00b-4faf-b2fa-f9e4efc27be4_300_460.jpg"
+            alt="The Witcher"
+            class="img-thumbnail"
+            width="200"
+            height="100"
+          />
           <h4>The Witcher</h4>
           <p class="font-italic">Andrzej Sapkowski</p>
           <p>1000 Sedang Membaca</p>
         </div>
         <div class="col-xs-6 col-md-4 col-lg-3">
-          <img src="src/Asset/Books/ID_EMK2014MTH12LAOT_B.jpg" alt="Attack on Titan" class="img-thumbnail" width="200" height="100">
+          <img
+            src="src/Asset/Books/ID_EMK2014MTH12LAOT_B.jpg"
+            alt="Attack on Titan"
+            class="img-thumbnail"
+            width="200"
+            height="100"
+          />
           <h4>Attack on Titan</h4>
           <p class="font-italic">Hajime Isayama</p>
           <p>1000 Sedang Membaca</p>
-        </div> 
-      </div>	
+        </div>
+      </div>
     </div>
-    
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="footer">
-      <div class="row">
+      <div class="row bg-secondary text-warning">
         <div class="container col-md-5 pl-5 ml-5">
           <span>Dapatkan Informasi dan Promo Terbaru</span>
-          <br>
+          <br />
           <form class="form-inline w-100">
             <div class="form-group w-50">
-              <input type="email" class="form-control form-control-sm m-1 w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Alamat E-mail Anda">
+              <input
+                type="email"
+                class="form-control form-control-sm m-1 w-100"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Masukkan Alamat E-mail Anda"
+              />
             </div>
-            <button type="submit" class="btn btn-primary btn-sm">DAFTAR</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-warning">
+              DAFTAR
+            </button>
           </form>
         </div>
         <div class="container col-md-6 pr-5 mr-5">
           <span class="float-right">Ikuti kami</span>
-          <br>
-          <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.facebook.com" class="float-right m-1 fa-lg"><i class="fab fa-facebook-square"></i></a>
-          <a href="https://www.instagram.com" class="float-right m-1 fa-lg"><i class="fab fa-instagram-square"></i></a>
+          <br />
+          <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"
+            ><i class="fab fa-twitter text-warning"></i
+          ></a>
+          <a href="https://www.facebook.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-facebook-square text-warning"></i
+          ></a>
+          <a href="https://www.instagram.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-instagram-square text-warning"></i
+          ></a>
         </div>
       </div>
-      <p class="text-center m-0"><small>&copy;Lentbook 2020</small></p>
+      <p class="text-center m-0 bg-dark text-white">
+        <small>&copy;Lentbook 2020</small>
+      </p>
     </footer>
+
+    <!-- javascript -->
+    <script src="./src/homapage.js"></script>
 
     <!-- Bootstrap -->
     <script

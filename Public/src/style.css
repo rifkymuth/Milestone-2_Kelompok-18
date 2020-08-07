@@ -40,3 +40,7 @@ h3 {
   display: inline-block;
   margin: 0 0 0 1em;
 }
+
+a {
+  color: #ffc107 !important;
+}

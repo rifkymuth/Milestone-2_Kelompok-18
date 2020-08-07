@@ -4,6 +4,15 @@ const Datastore = require("nedb");
 const app = express();
 const { request, response, query } = require("express");
 const md5 = require("md5");
+const bodyParser = require("body-parser");
+
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
+app.use(bodyParser.json());
 
 // Buka database
 const dataBuku = new Datastore("Database/data_buku.db");
@@ -67,11 +76,11 @@ app.get("/api", (request, response) => {
 });
 
 // buat login
-app.post("/api/login", (request, response) => {
+app.get("/api/login", (request, response) => {
   const dataUser = new Datastore("Database/data_user.db");
   dataUser.loadDatabase();
   var res = {};
-  const data = request.body;
+  const data = request.query;
   const user = data.username;
   const pass = data.password;
   if (!data || !user || !pass) {
@@ -90,6 +99,33 @@ app.post("/api/login", (request, response) => {
       }
       response.send(res);
     });
+  }
+});
+
+// buat signup
+app.post("/api/signup", (request, response) => {
+  const dataUser = new Datastore("Database/data_user.db");
+  dataUser.loadDatabase();
+  var res = {};
+  const data = request.body;
+  const user = data.username;
+  const pass = md5(data.password);
+  const nama = data.nama;
+  if (user != "" && pass != "" && nama != "") {
+    dataUser.findOne({ username: user }, function(err, doc) {
+      if (!doc) {
+        data.password = pass;
+        dataUser.insert(data);
+        res = { result: true, reason: "" };
+        response.send(res);
+      } else {
+        res = { result: false, reason: "username sudah terdaftar" };
+        response.send(res);
+      }
+    });
+  } else {
+    res = { result: false, reason: "Masih ada data yang kosong!" };
+    response.send(res);
   }
 });
 

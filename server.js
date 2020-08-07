@@ -67,7 +67,7 @@ app.get("/api", (request, response) => {
 });
 
 // buat login
-app.post("/login", (request, response) => {
+app.post("/api/login", (request, response) => {
   const dataUser = new Datastore("Database/data_user.db");
   dataUser.loadDatabase();
   var res = {};

@@ -16,6 +16,7 @@
 }
 .logo {
   width: 400px;
+  max-width: 100%;
 }
 
 .background-landingpage {
@@ -39,4 +40,8 @@ h3 {
 .fa-arrow-right {
   display: inline-block;
   margin: 0 0 0 1em;
+}
+
+a {
+  color: #ffc107 !important;
 }

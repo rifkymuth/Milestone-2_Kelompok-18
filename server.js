@@ -154,7 +154,11 @@ app.get("/api/cariBuku/:query", (request, response) => {
 // API genre
 app.get("/api/cariGenre/:genre", (request, response) => {
   console.log(`Request genre masuk: ${request.params.genre}`);
+<<<<<<< HEAD
+  genre = request.params.genre;
+=======
   var genre = request.params.genre;
+>>>>>>> 631e658d4a943251c7bbd502acfa0bf5b1d5d05f
   // Cari buku di database berdasarkan genre
   dataBuku.find({ genre: genre }, (err, data) => {
     if (err) {

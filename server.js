@@ -3,6 +3,7 @@ const express = require("express");
 const Datastore = require("nedb");
 const app = express();
 const { request, response, query } = require("express");
+const md5 = require("md5");
 
 // Buka database
 const dataBuku = new Datastore("Database/data_buku.db");
@@ -65,6 +66,33 @@ app.get("/api", (request, response) => {
   });
 });
 
+// buat login
+app.post("/api/login", (request, response) => {
+  const dataUser = new Datastore("Database/data_user.db");
+  dataUser.loadDatabase();
+  var res = {};
+  const data = request.body;
+  const user = data.username;
+  const pass = data.password;
+  if (!data || !user || !pass) {
+    res = { result: false, reason: "Masih ada data yang kosong!" };
+    response.send(res);
+  } else {
+    dataUser.findOne({ username: user }, function(err, doc) {
+      if (!doc) {
+        res = { result: false, reason: "Username atau password salah!" };
+      } else {
+        if (doc.password != md5(pass)) {
+          res = { result: false, reason: "Username atau password salah!" };
+        } else {
+          res = { result: true, reason: "" };
+        }
+      }
+      response.send(res);
+    });
+  }
+});
+
 // API query data buku
 app.get("/api/cariBuku/:query", (request, response) => {
   console.log(`Request data masuk: ${request.params.query}`);
@@ -90,7 +118,11 @@ app.get("/api/cariBuku/:query", (request, response) => {
 // API genre
 app.get("/api/cariGenre/:genre", (request, response) => {
   console.log(`Request genre masuk: ${request.params.genre}`);
+<<<<<<< HEAD
   genre = request.params.genre;
+=======
+  var genre = request.params.genre;
+>>>>>>> 631e658d4a943251c7bbd502acfa0bf5b1d5d05f
   // Cari buku di database berdasarkan genre
   dataBuku.find({ genre: genre }, (err, data) => {
     if (err) {

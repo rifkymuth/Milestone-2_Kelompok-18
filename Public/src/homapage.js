@@ -1,4 +1,5 @@
 const palingBanyakDibaca = document.getElementById("paling-banyak-dibaca");
+const satuSeries = document.getElementById("satu-series");
 
 async function getData() {
   const response = await fetch("/api", { method: "GET" });
@@ -54,6 +55,29 @@ async function getData() {
           <p>1000 Sedang Membaca</p>
         </div>
         `;
+  satuSeries.innerHTML = `<div class="col-xs-6 col-md-4 col-lg-3">
+    <img
+      src="${data[2].img}"
+      alt="${data[2].judul}"
+      class="img-thumbnail"
+      width="200"
+      height="100"
+    />
+    <h4>${data[2].judul}</h4>
+    <p class="font-italic">${data[2].pengarang}</p>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <img
+      src="${data[4].img}"
+      alt="${data[4].judul}"
+      class="img-thumbnail"
+      width="200"
+      height="100"
+    />
+    <h4>${data[4].judul}</h4>
+    <p class="font-italic">${data[4].pengarang}</p>
+  </div>
+  `;
 }
 
 getData();

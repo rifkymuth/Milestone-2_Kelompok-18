@@ -63,6 +63,10 @@ app.get("/cariBuku", (request, response) => {
 app.get("/cariGenre", (request, response) => {
   response.sendFile(__dirname + "/Public/dummy_genre.html"); // INDEKS FRONT END
 });
+// Dummy signup
+app.get("/signup", (request, response) => {
+  response.sendFile(__dirname + "/Public/dummy_register.html"); // INDEKS FRONT END
+});
 
 // API buka semua database
 app.get("/api", (request, response) => {
@@ -107,16 +111,17 @@ app.post("/api/signup", (request, response) => {
   const dataUser = new Datastore("Database/data_user.db");
   dataUser.loadDatabase();
   var res = {};
+  console.log("Registrasi diterima");
   const data = request.body;
   const user = data.username;
-  const pass = md5(data.password);
+  const pass = data.password;
   const nama = data.nama;
-  if (user != "" && pass != "" && nama != "") {
+  if ((user != '') && (pass != '') && (nama != '')) {
     dataUser.findOne({ username: user }, function(err, doc) {
       if (!doc) {
-        data.password = pass;
+        data.password = md5(data.password);
         dataUser.insert(data);
-        res = { result: true, reason: "" };
+        res = { result: true, reason: "Registrasi Berhasil" };
         response.send(res);
       } else {
         res = { result: false, reason: "username sudah terdaftar" };
@@ -154,11 +159,8 @@ app.get("/api/cariBuku/:query", (request, response) => {
 // API genre
 app.get("/api/cariGenre/:genre", (request, response) => {
   console.log(`Request genre masuk: ${request.params.genre}`);
-<<<<<<< HEAD
   genre = request.params.genre;
-=======
   var genre = request.params.genre;
->>>>>>> 631e658d4a943251c7bbd502acfa0bf5b1d5d05f
   // Cari buku di database berdasarkan genre
   dataBuku.find({ genre: genre }, (err, data) => {
     if (err) {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+</head>
+<body>
+  <h1>Register</h1>
+  <form class="my-form">
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="user">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="pass">
+    </div>
+    <div>
+      <label for="nama">Nama Lengkap: </label>
+      <input type="text" name="nama" id="nama">
+    </div>
+    <input class="button" type="button" value="Daftar" id="cariData">
+  </form>
+
+  <script>
+    const tombol = document.getElementById('cariData');
+    tombol.addEventListener('click', async e => {
+      const user = document.getElementById('user').value;
+      const pass = document.querySelector('#pass').value;
+      const nama = document.getElementById('nama').value;
+      const data = {username : user, password : pass, nama : nama};
+      //Opsi data
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      };
+      const response = await fetch('/api/signup', options);
+      const json = await response.json();
+      console.log(json);
+    })
+    
+  </script>
+</body>
+</html>

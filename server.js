@@ -120,6 +120,7 @@ app.post("/api/signup", (request, response) => {
     dataUser.findOne({ username: user }, function(err, doc) {
       if (!doc) {
         data.password = md5(data.password);
+        data.pinjam = [];
         dataUser.insert(data);
         res = { result: true, reason: "Registrasi Berhasil" };
         response.send(res);

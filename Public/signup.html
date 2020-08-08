@@ -35,34 +35,59 @@
   <body>
     <!--Navbar-->
     <nav class="navbar navbar-dark bg-dark row">
-        <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
-          <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
-        </a>
+      <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
+        <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
+      </a>
     </nav>
 
     <!--Main-->
     <main class="container-fluid padding w-100 bg-warning">
-        <div class="text-center mb-2"> 
-            <h1>Sign Up</h1>
+      <div class="text-center mb-2">
+        <h1>Sign Up</h1>
+      </div>
+      <div
+        class="container card rounded mx-auto shadow-lg py-2"
+        style="width: 25rem;"
+      >
+        <div class="form-group my-3">
+          <label for="InputUsername">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="InputUsername"
+          />
         </div>
-        <div class="container card rounded mx-auto shadow-lg py-2" style="width: 25rem;">
-            <div class="form-group my-3">
-             <label for="InputUsername">Username</label>
-             <input type="text" class="form-control" name="username" id="InputUser">
-            </div>
-            <div class="form-group my-3">
-             <label for="InputEmail">E-mail</label>
-             <input type="email" class="form-control" name="email" id="InnutEmail">
-            </div>
-            <div class="form-group my-3">
-             <label for="InputPassword">Password</label>
-             <input type="password" class="form-control" name="password" id="InputPassword">
-            </div> 
-            <input class="btn btn-outline-warning my-3" type="button" value="Sign Up" id="CariData">
-            <div class="mb-3">
-             <a href="./dummy_login.html">Already have account? click here to login!</a>
-            </div>
+        <div class="form-group my-3">
+          <label for="InputEmail">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="InputEmail"
+          />
         </div>
+        <div class="form-group my-3">
+          <label for="InputPassword">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="InputPassword"
+          />
+        </div>
+        <input
+          class="btn btn-outline-warning my-3"
+          type="button"
+          value="Sign Up"
+          id="CariData"
+        />
+        <div class="mb-3">
+          <a href="./dummy_login.html"
+            >Already have account? click here to login!</a
+          >
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->

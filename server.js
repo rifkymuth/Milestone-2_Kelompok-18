@@ -67,6 +67,10 @@ app.get("/cariGenre", (request, response) => {
 app.get("/signup", (request, response) => {
   response.sendFile(__dirname + "/Public/dummy_register.html"); // INDEKS FRONT END
 });
+// Page login
+app.get("/login", (request, response) => {
+  response.sendFile(__dirname + "/Public/login.html"); // INDEKS FRONT END
+});
 
 // API buka semua database
 app.get("/api", (request, response) => {
@@ -123,7 +127,7 @@ app.post("/api/signup", (request, response) => {
         data.pinjam = [];
         dataUser.insert(data);
         res = { result: true, reason: "Registrasi Berhasil" };
-        response.send(res);
+        response.redirect('/login');
       } else {
         res = { result: false, reason: "username sudah terdaftar" };
         response.send(res);

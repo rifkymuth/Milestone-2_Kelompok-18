@@ -48,25 +48,25 @@
       <div
         class="container card rounded mx-auto shadow-lg py-2"
         style="width: 25rem;"
-      >
+      > 
       <form action = "/api/signup" method = "post">
         <div class="form-group my-3">
-          <label for="user">Username</label>
+          <label for="user">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nama"
+            id="nama"
+            required
+          />
+        </div>
+        <div class="form-group my-3">
+          <label for="nama">Username</label>
           <input
             type="text"
             class="form-control"
             name="username"
             id="user"
-            required
-          />
-        </div>
-        <div class="form-group my-3">
-          <label for="nama">Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="email"
-            id="nama"
             required
           />
         </div>

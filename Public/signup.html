@@ -34,7 +34,7 @@
 
   <body>
     <!--Navbar-->
-    <nav class="navbar navbar-dark bg-dark row">
+    <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
         <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
       </a>
@@ -49,6 +49,7 @@
         class="container card rounded mx-auto shadow-lg py-2"
         style="width: 25rem;"
       >
+      <form action = "/api/signup" method = "post">
         <div class="form-group my-3">
           <label for="user">Username</label>
           <input
@@ -79,12 +80,15 @@
             required
           />
         </div>
+        <center>
         <input
-          class="btn btn-outline-warning my-3"
-          type="button"
+          class="btn btn-outline-warning my-4"
+          type="submit"
           value="Sign Up"
           id="cariData"
         />
+        </center>
+      </form>
         <div class="mb-3">
           <a href="./login.html">Already have account? click here to login!</a>
         </div>

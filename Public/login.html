@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lentbook - Sign Up</title>
+    <title>Lentbook - Login</title>
 
     <link href="./src/style.css" rel="stylesheet" type="text/css" />
     <script src="./src/main.js"></script>
@@ -43,51 +43,53 @@
     <!--Main-->
     <main class="container-fluid padding w-100 bg-warning">
       <div class="text-center mb-2">
-        <h1>Sign Up</h1>
+        <h1>Login</h1>
       </div>
       <div
         class="container card rounded mx-auto shadow-lg py-2"
         style="width: 25rem;"
       >
-        <div class="form-group my-3">
-          <label for="user">Username</label>
+        <form action="/api/signup" method="post">
+          <div class="form-group my-3">
+            <label for="user">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              id="user"
+              required
+            />
+          </div>
+          <div class="form-group my-3">
+            <label for="nama">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              id="nama"
+              required
+            />
+          </div>
+          <div class="form-group my-3">
+            <label for="pass">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="pass"
+              required
+            />
+          </div>
           <input
-            type="text"
-            class="form-control"
-            name="username"
-            id="user"
-            required
+            class="btn btn-outline-warning my-3"
+            type="button"
+            value="Login"
+            id="cariData"
           />
-        </div>
-        <div class="form-group my-3">
-          <label for="nama">Full Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="email"
-            id="nama"
-            required
-          />
-        </div>
-        <div class="form-group my-3">
-          <label for="pass">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            id="pass"
-            required
-          />
-        </div>
-        <input
-          class="btn btn-outline-warning my-3"
-          type="button"
-          value="Sign Up"
-          id="cariData"
-        />
-        <div class="mb-3">
-          <a href="./login.html">Already have account? click here to login!</a>
-        </div>
+          <div class="mb-3">
+            <a href="./signup.html">Create account!</a>
+          </div>
+        </form>
       </div>
     </main>
 
@@ -99,7 +101,7 @@
     </footer>
 
     <!-- javascript -->
-    <script src="./src/signup.js"></script>
+    <script src="./src/login.js"></script>
 
     <!-- Bootstrap -->
     <script

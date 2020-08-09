@@ -20,9 +20,6 @@ dataBuku.loadDatabase();
 // Inisialisasi server
 app.use(express.static(__dirname + "/Public/")); // BUAT AKSES FRONT END
 app.use(express.json({ limit: "10mb" }));
-const listener = app.listen(3000, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
 
 // Buka landpage
 app.get("/", (request, response) => {
@@ -55,6 +52,14 @@ app.post("/tambahBuku", (request, response) => {
   });
 });
 
+
+//liat total buku
+app.get("/total", (request, response) => {
+  dataBuku.count({}, (err, count) => {
+    response.send("<h1><center>"+count+"</center></h1>")
+  });
+});
+
 // Dummy page cari buku
 app.get("/cariBuku", (request, response) => {
   response.sendFile(__dirname + "/Public/dummy_caribuku.html"); // INDEKS FRONT END
@@ -63,14 +68,15 @@ app.get("/cariBuku", (request, response) => {
 app.get("/cariGenre", (request, response) => {
   response.sendFile(__dirname + "/Public/dummy_genre.html"); // INDEKS FRONT END
 });
-// Dummy signup
+
+/*// Dummy signup
 app.get("/signup", (request, response) => {
   response.sendFile(__dirname + "/Public/dummy_register.html"); // INDEKS FRONT END
 });
 // Page login
 app.get("/login", (request, response) => {
   response.sendFile(__dirname + "/Public/login.html"); // INDEKS FRONT END
-});
+});*/
 
 // API buka semua database
 app.get("/api", (request, response) => {
@@ -102,7 +108,7 @@ app.get("/api/login", (request, response) => {
         if (doc.password != md5(pass)) {
           res = { result: false, reason: "Username atau password salah!" };
         } else {
-          res = { result: true, reason: "" };
+          res = { result: true, reason: doc.nama };
         }
       }
       response.send(res);
@@ -120,14 +126,14 @@ app.post("/api/signup", (request, response) => {
   const user = data.username;
   const pass = data.password;
   const nama = data.nama;
-  if ((user != '') && (pass != '') && (nama != '')) {
+  if (user != "" && pass != "" && nama != "") {
     dataUser.findOne({ username: user }, function(err, doc) {
       if (!doc) {
         data.password = md5(data.password);
         data.pinjam = [];
         dataUser.insert(data);
         res = { result: true, reason: "Registrasi Berhasil" };
-        response.redirect('/login');
+        response.send(res);
       } else {
         res = { result: false, reason: "username sudah terdaftar" };
         response.send(res);
@@ -178,4 +184,8 @@ app.get("/api/cariGenre/:genre", (request, response) => {
       response.json(data);
     }
   });
+});
+
+const listener = app.listen(3000, () => {
+  console.log("Your app is listening on port " + listener.address().port);
 });

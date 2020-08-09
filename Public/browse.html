@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lentbook - Browse</title>
+
+    <link href="./src/style.css" rel="stylesheet" type="text/css" />
+    <script src="./src/main.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="./src/libraries/fontawesome-free-5.14.0-web/css/all.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-dark bg-dark row">
+      <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
+        <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
+      </a>
+      <div class="col-md-6 text-right">
+        <a href="./login.html"
+          ><button class="btn btn-secondary my-2 my-sm-0 mr-4" type="button">
+            LOGIN
+          </button>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Search section -->
+    <div class="container-fluid padding bg-warning">
+      <div class="row">
+        <h1 class="text-left welcome col-md-12">Browse</h1>
+        <div class="container padding col-md-4 col-sm-10">
+          <form>
+            <div class="form-group my-form">
+              <label for="cari">Title/Author</label>
+              <input type="text" name="name" class="form-control" id="cari" />
+            </div>
+            <button
+              type="button"
+              class="btn btn-dark"
+              value="Cari"
+              id="cariJudul"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+        <div class="container padding col-md-4 colsm-10">
+          <form>
+            <div class="my-1 mb-3">
+              <label class="mr-sm-2" for="genre">Genre</label>
+              <select class="custom-select mr-sm-2" name="genre" id="genre">
+                <optgroup label="Fiksi">
+                  <option value="Horror">Horror</option>
+                  <option value="Fantasi">Fantasi</option>
+                  <option value="Sci-Fi">Sci-Fi</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Humor">Humor</option>
+                  <option value="Misteri">Misteri</option>
+                  <option value="Petualangan">Petualangan</option>
+                </optgroup>
+                <optgroup label="Non-Fiksi">
+                  <option value="Biografi">Biografi</option>
+                  <option value="Sejarah">Sejarah</option>
+                  <option value="Ensiklopedia">Ensiklopedia</option>
+                  <option value="Akademik">Akademik</option>
+                  <option value="Filsafat">Filsafat</option>
+                  <option value="Kerajinan">Kerajinan</option>
+                </optgroup>
+              </select>
+            </div>
+          </form>
+          <button
+            type="button"
+            class="btn btn-dark"
+            value="Cari"
+            id="cariGenre"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="container-fluid padding bg-white">
+      <h2>Results</h2>
+      <div class="row padding text-center" id="result-items-judul"></div>
+      <div class="row padding text-center" id="result-items-genre"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row bg-secondary text-warning py-3">
+        <div class="container col-md-5 pl-5 ml-5">
+          <span>Dapatkan Informasi dan Promo Terbaru</span>
+          <br />
+          <form class="form-inline w-100">
+            <div class="form-group w-50">
+              <input
+                type="email"
+                class="form-control form-control-sm m-1 w-100"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Masukkan Alamat E-mail Anda"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm btn-warning">
+              DAFTAR
+            </button>
+          </form>
+        </div>
+        <div class="container col-md-4 pr-5 mr-5">
+          <span class="float-right">Ikuti kami</span>
+          <br />
+          <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"
+            ><i class="fab fa-twitter text-warning"></i
+          ></a>
+          <a href="https://www.facebook.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-facebook-square text-warning"></i
+          ></a>
+          <a href="https://www.instagram.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-instagram-square text-warning"></i
+          ></a>
+        </div>
+      </div>
+      <p class="text-center m-0 bg-dark text-white">
+        <small>&copy;Lentbook 2020</small>
+      </p>
+    </footer>
+
+    <!-- javascript -->
+    <script src="./src/browse.js"></script>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

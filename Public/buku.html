@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lentbook - ${judul buku}</title>
+
+    <link href="./src/style.css" rel="stylesheet" type="text/css" />
+    <script src="./src/main.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="./src/libraries/fontawesome-free-5.14.0-web/css/all.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-dark bg-dark row">
+      <a class="navbar-brand col-md-3 text-left" href="./hompage.html">
+        <img src="./src/Asset/Logo & icon/Logo Lentbook.png" class="logo" />
+      </a>
+      <div class="col-md-6 text-right">
+        <a href="./browse.html">
+          <button class="btn btn-warning my-2 my-sm-0" type="button">
+            BROWSE
+          </button>
+        </a>
+        <a href="./login.html"
+          ><button class="btn btn-secondary my-2 my-sm-0 mr-4" type="button">
+            LOGIN
+          </button>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Informasi Buku -->
+    <div class="container-fluid padding bg-white">
+      <div class="row padding text-center rounded border shadow-lg">
+        <div class="media">
+          <img
+            class="align-self-start mr-3 image-resize"
+            src="./src/Asset/Books/9200000074408713.jpg"
+            alt="${judul}"
+          />
+          <div class="media-body ml-4 text-left">
+            <h3 class="mt-0">${judul}</h3>
+            <h6><span class="text-bold">Pengarang: </span>${pengarang}</h6>
+            <h6><span class="text-bold">Tahun terbit: </span>${tahun}</h6>
+            <h6><span class="text-bold">Jumlah halaman: </span>${halaman}</h6>
+            <h6><span class="text-bold">Bahasa: </span>${bahasa}</h6>
+            <h6><span class="text-bold">Genre: </span>${genre}</h6>
+            <br />
+            <p>${deskripsi}</p>
+            <button
+              type="button"
+              class="btn btn-warning display-block"
+              id="lend-button"
+            >
+              LEND NOW! <i class="fas fa-tag text-dark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row bg-secondary text-warning py-3">
+        <div class="container col-md-5 pl-5 ml-5">
+          <span>Dapatkan Informasi dan Promo Terbaru</span>
+          <br />
+          <form class="form-inline w-100">
+            <div class="form-group w-50">
+              <input
+                type="email"
+                class="form-control form-control-sm m-1 w-100"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Masukkan Alamat E-mail Anda"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm btn-warning">
+              DAFTAR
+            </button>
+          </form>
+        </div>
+        <div class="container col-md-4 pr-5 mr-5">
+          <span class="float-right">Ikuti kami</span>
+          <br />
+          <a href="https://www.twitter.com" class="float-right my-1 ml-1 fa-lg"
+            ><i class="fab fa-twitter text-warning"></i
+          ></a>
+          <a href="https://www.facebook.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-facebook-square text-warning"></i
+          ></a>
+          <a href="https://www.instagram.com" class="float-right m-1 fa-lg"
+            ><i class="fab fa-instagram-square text-warning"></i
+          ></a>
+        </div>
+      </div>
+      <p class="text-center m-0 bg-dark text-white">
+        <small>&copy;Lentbook 2020</small>
+      </p>
+    </footer>
+
+    <!-- javascript -->
+    <script src="./src/buku.js"></script>
+
+    <!-- Bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

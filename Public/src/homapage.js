@@ -1,6 +1,7 @@
 const palingBanyakDibaca = document.getElementById("paling-banyak-dibaca");
 const satuSeries = document.getElementById("satu-series");
 const kategoriRek = document.getElementById("carouselExampleIndictors");
+const rekomendasiBuku = document.getElementById("rekomendasi-buku");
 
 async function getData() {
   const response = await fetch("/api", { method: "GET" });
@@ -10,6 +11,7 @@ async function getData() {
   printDataPalingBanyakDibaca(data);
   printDataSatuSeries(data);
   printDataKategoriRek(data);
+  printDataRekBuku(data);
 }
 
 getData();
@@ -148,4 +150,24 @@ function printDataKategoriRek(data) {
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>`;
+}
+
+function printDataRekBuku(data) {
+  rekomendasiBuku.innerHTML = `<div class="media">
+  <img
+    class="align-self-start mr-3"
+    src="${data[2].img}"
+    alt="${data[2].judul}"
+    width="200"
+    height="100"
+  />
+  <div class="media-body ml-4 text-left">
+    <h4 class="mt-0">${data[2].judul}</h4>
+    <h6><span class="text-bold">Pengarang: </span>${data[2].pengarang}</h6>
+    <h6><span class="text-bold">Jumlah halaman: </span>${data[2].halaman}</h6>
+    <h6><span class="text-bold">Genre: </span>${data[2].genre}</h6>
+    <br />
+    <p>${data[2].deskripsi}</p>
+  </div>
+</div>`;
 }

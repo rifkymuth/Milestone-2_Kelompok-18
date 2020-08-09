@@ -67,3 +67,14 @@ a:hover {
 #lend-button {
   width: 250px;
 }
+
+#buku-rekomendasi {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto !important;
+}
+
+#buku-rekomendasi img {
+  min-height: 100% !important;
+  height: auto;
+}

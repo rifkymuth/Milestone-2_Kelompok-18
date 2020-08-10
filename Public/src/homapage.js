@@ -1,3 +1,4 @@
+
 const palingBanyakDibaca = document.getElementById("paling-banyak-dibaca");
 const satuSeries = document.getElementById("satu-series");
 const kategoriRek = document.getElementById("carouselExampleIndictors");
@@ -17,7 +18,7 @@ async function getData() {
 getData();
 
 function printDataSatuSeries(data) {
-  satuSeries.innerHTML = `<div class="col-xs-6 col-md-4 col-lg-3">
+  satuSeries.innerHTML = `<div class="col-xs-6 col-md-4 col-lg-3" id="buku-paling">
     <img
       src="${data[2].img}"
       alt="${data[2].judul}"
@@ -43,56 +44,94 @@ function printDataSatuSeries(data) {
 }
 
 function printDataPalingBanyakDibaca(data) {
-  palingBanyakDibaca.innerHTML = `<div class="col-xs-6 col-md-4 col-lg-3">
+  let output = ``
+  // palingBanyakDibaca = simpen disini
+  for (let i = 0; i < 4; i++) {
+    output += 
+    `<div class="col-xs-6 col-md-4 col-lg-3" id="buku-paling">
           <img
-            src="${data[4].img}"
-            alt="${data[4].judul}"
+            src="${data[i].img}"
+            alt="${data[i].judul}"
             class="img-thumbnail"
             width="200"
             height="100"
           />
-          <h4>${data[4].judul}</h4>
-          <p class="font-italic">${data[4].pengarang}</p>
-          <p>1000 Sedang Membaca</p>
-        </div>
-        <div class="col-xs-6 col-md-4 col-lg-3">
-          <img
-            src="${data[1].img}"
-            alt="${data[1].judul}"
-            class="img-thumbnail"
-            width="200"
-            height="100"
-          />
-          <h4>${data[1].judul}</h4>
-          <p class="font-italic">${data[1].pengarang}</p>
-          <p>1000 Sedang Membaca</p>
-        </div>
-        <div class="col-xs-6 col-md-4 col-lg-3">
-          <img
-            src="${data[3].img}"
-            alt="${data[3].judul}"
-            class="img-thumbnail"
-            width="200"
-            height="100"
-          />
-          <h4>${data[3].judul}</h4>
-          <p class="font-italic">${data[3].pengarang}</p>
-          <p>1000 Sedang Membaca</p>
-        </div>
-        <div class="col-xs-6 col-md-4 col-lg-3">
-          <img
-            src="${data[0].img}"
-            alt="${data[0].judul}"
-            class="img-thumbnail"
-            width="200"
-            height="100"
-          />
-          <h4>${data[0].judul}</h4>
-          <p class="font-italic">${data[0].pengarang}</p>
-          <p>1000 Sedang Membaca</p>
-        </div>
-        `;
+          <span id="isbn" style="display: none">${data[i].isbn}</span>
+          <h4>${data[i].judul}</h4>
+          <p class="font-italic">${data[i].pengarang}</p>
+          <p>${Math.floor(Math.random() * 1000) + 500} Sedang Membaca</p>
+    </div>`
+  }
+  palingBanyakDibaca.innerHTML = output
+  pilihBukuPBD()
 }
+
+function pilihBukuPBD() {
+  bukuPBD = document.querySelectorAll('#buku-paling')
+  console.log(bukuPBD);
+  for (const el of bukuPBD) {
+    el.addEventListener('click', async e => {
+      const parent = e.target.parentNode
+      var isbn = parent.querySelector('#isbn').innerText
+      // const response = await fetch();
+      console.log(isbn);
+      window.location.href = `/buku/${isbn}`;
+    })
+  }
+  
+}
+  
+
+  // palingBanyakDibaca.innerHTML = `<div class="col-xs-6 col-md-4 col-lg-3">
+  //         <img
+  //           src="${data[4].img}"
+  //           alt="${data[4].judul}"
+  //           class="img-thumbnail"
+  //           width="200"
+  //           height="100"
+  //         />
+  //         <h4>${data[4].judul}</h4>
+  //         <p class="font-italic">${data[4].pengarang}</p>
+  //         <p>1000 Sedang Membaca</p>
+  //       </div>
+  //       <div class="col-xs-6 col-md-4 col-lg-3">
+  //         <img
+  //           src="${data[1].img}"
+  //           alt="${data[1].judul}"
+  //           class="img-thumbnail"
+  //           width="200"
+  //           height="100"
+  //         />
+  //         <h4>${data[1].judul}</h4>
+  //         <p class="font-italic">${data[1].pengarang}</p>
+  //         <p>1000 Sedang Membaca</p>
+  //       </div>
+  //       <div class="col-xs-6 col-md-4 col-lg-3">
+  //         <img
+  //           src="${data[3].img}"
+  //           alt="${data[3].judul}"
+  //           class="img-thumbnail"
+  //           width="200"
+  //           height="100"
+  //         />
+  //         <h4>${data[3].judul}</h4>
+  //         <p class="font-italic">${data[3].pengarang}</p>
+  //         <p>1000 Sedang Membaca</p>
+  //       </div>
+  //       <div class="col-xs-6 col-md-4 col-lg-3">
+  //         <img
+  //           src="${data[0].img}"
+  //           alt="${data[0].judul}"
+  //           class="img-thumbnail"
+  //           width="200"
+  //           height="100"
+  //         />
+  //         <h4>${data[0].judul}</h4>
+  //         <p class="font-italic">${data[0].pengarang}</p>
+  //         <p>1000 Sedang Membaca</p>
+  //       </div>
+  //       `;
+
 
 function printDataKategoriRek(data) {
   kategoriRek.innerHTML = `<ol class="carousel-indicators">
@@ -172,11 +211,11 @@ function printDataRekBuku(data) {
 </div>`;
 }
 
-palingBanyakDibaca.addEventListener('click', function(e) {
-        if (e.target.className=='img-thumbnail') {
-          open('dummy_openpdf.html','_blank');
-        }
-      });
+// palingBanyakDibaca.addEventListener('click', function(e) {
+//         if (e.target.className=='img-thumbnail') {
+//           open('dummy_openpdf.html','_blank');
+//         }
+//       });
 
 
       

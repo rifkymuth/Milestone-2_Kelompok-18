@@ -186,6 +186,32 @@ app.get("/api/cariGenre/:genre", (request, response) => {
   });
 });
 
+
+app.get("/buku/:isbn", (request, response) => {
+  console.log(`Request isbn masuk: ${request.params.isbn}`);
+  var isbn = request.params.isbn;
+  if (isbn != "<directory>") {
+    response.sendFile(__dirname + "/Public/dummy_openpdf.html");
+  }
+  else {
+    response.end()
+  }
+ 
+  //response.render('dummy_openpdf.html', {isbn : request.params.isbn});
+  // Cari buku di database berdasarkan genre
+  // dataBuku.find({ genre: genre }, (err, data) => {
+  //   if (err) {
+  //     // Error Handling
+  //     console.log("there is an error in database query");
+  //     console.log(err);
+  //     response.end();
+  //   } else {
+  //     // Kembalikan hasil
+  //     response.json(data);
+  //   }
+  // });
+});
+
 const listener = app.listen(3000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });

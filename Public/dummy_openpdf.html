@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buku</title>
 </head>
 <body>
     <h1>PDF FILE</h1>
-    <div id="pdf"></div> 
+    <div id="pdf" style="align-content: center"></div> 
     <script>
-        console.log(window.location.pathname);
         const path = window.location.pathname
         const isbn = path.slice(6,path.length)
         console.log(isbn);
         document.getElementById('pdf').innerHTML = `
-        <object data="/src/buku/${isbn}.pdf" width="80%" height="500px">
-            <embed src="/src/buku/${isbn}.pdf" width="80%" height="500px"/>`
+        <object data="/src/buku/${isbn}.pdf" width="100%" height="700px" >
+            <embed src="/src/buku/${isbn}.pdf" width="100%" height="700px"/>
+        </object>`
     </script>
 </body>
 </html>

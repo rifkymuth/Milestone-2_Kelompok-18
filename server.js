@@ -192,7 +192,6 @@ app.get("/buku/:isbn", (request, response) => {
   var isbn = request.params.isbn;
   if (isbn != "<directory>") {
     response.sendFile(__dirname + "/Public/dummy_openpdf.html");
-    response.end()
   }
   else {
     response.end()

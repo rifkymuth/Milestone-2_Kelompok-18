@@ -64,3 +64,10 @@ function printResultsGenre(dataGenre) {
       `<h3 class="col-md-12 text-left">By Genre:</h3>` + blockResult.join("\n");
   }
 }
+
+
+resultJudul.addEventListener('click', function(e) {
+        if (e.target.className=='img-thumbnail') {
+          open('dummy_openpdf.html','_blank');
+        }
+      });

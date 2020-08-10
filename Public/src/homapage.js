@@ -171,3 +171,13 @@ function printDataRekBuku(data) {
   </div>
 </div>`;
 }
+
+palingBanyakDibaca.addEventListener('click', function(e) {
+        if (e.target.className=='img-thumbnail') {
+          open('dummy_openpdf.html','_blank');
+        }
+      });
+
+
+      
+      

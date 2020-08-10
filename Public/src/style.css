@@ -78,3 +78,7 @@ a:hover {
   min-height: 100% !important;
   height: auto;
 }
+
+.img-thumbnail:hover{
+      opacity: 0.5 ;
+      cursor: pointer;

@@ -13,7 +13,7 @@ Pembagian tugas milestone 2
 6. (16519285), Back end
 7. (16519307), Front end
 8. (16519019), Front end
-9. Muhammad Rifky Muthahhari (16519354), Front end
+9. (16519354), Front end
 10. (16519401), Front end
 
 ## Frontend
@@ -25,3 +25,8 @@ Pembagian tugas milestone 2
 - index.js (server)
 
 
+# Cara penggunaan
+1. Install node pada komputer
+2. Download repository
+3. Buka command prompt dan arahkan ke directory folder repository didownload
+4. Pada command prompt jalankan "node server.js"
